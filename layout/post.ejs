@@ -1,0 +1,56 @@
+
+<html>
+  <head>
+  	
+    <title><%= page.title %> - <%= theme.title %></title>
+    <%- partial('_partial/head') %>
+  </head>
+  <body>
+  	
+   
+    <div id='container'>
+      <%- partial('_partial/links') %>
+	  
+      <div class='content'>
+        <section class='post'>
+          <h1>
+		    <%= page.title %>
+            <!--<div class='date'> <%- date(page.date, config.date_format) %></div> -->
+          </h1>
+          <%- page.content %>
+
+		 <!--
+			  <% if (page.prev) { %>
+				  <a href='<%- url_for(page.prev.path) %>'>
+					Previous : &nbsp; <%= page.prev.title %>
+				  </a>
+			  <% } %>
+			   </br>
+			  <% if (page.next) { %>
+				  <a href='<%- url_for(page.next.path) %>'>
+					Next : &nbsp; <%= page.next.title %>
+				  </a>
+			  <% } %>
+		  -->
+        </section>
+      </div>
+      <% if (theme.disqus_shortname) { %>
+        <%- partial('_partial/disqus') %>
+      <% } %>
+	 <hr>
+	 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+		<script>
+		  var cloudTieConfig = {
+			url: document.location.href, 
+			sourceId: "",
+			productKey: "3a3edccb2cc44886a35e5d5099955f58",
+			target: "cloud-tie-wrapper"
+		  };
+		</script>
+		<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div>
+	
+	
+    <%- partial('_partial/footer') %>
+  </body>
+</html>
